@@ -1,0 +1,75 @@
+<Head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animations.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+</Head>
+
+  <Body>
+
+
+  <div class="container" id="mainwindow">
+
+    <div class="page-header">
+      <div class='btn-toolbar pull-right'>
+            <div class='btn-group'><br>
+                <a href=''><image style="width: 32px;" src='res/GitHub-Mark-64px.png' class="icon"/></a>
+                <a href=''><image style="width: 32px;" src='res/In-Black-66px-R.png' class="icon" ></a>
+            </div>
+    </div>
+      <h1>Oliver James</h1>
+      <p>Student and Software Engineer.</p>
+
+        </div>
+    <div id="navbar" style="flex:1"></div>
+</div>
+  <div class="container" id="contentwindow">
+    <div id="content" ></div>
+  </div>
+  </Body>
+
+  <script>
+    navlinks = ["home","education","myprojects","contact"];
+    current_page = "home";
+    function include(ID, link){
+      $("#" + ID).load(link);
+    }
+
+    function loadpage(link){
+        $("body").load(link);
+    }
+
+    function showPage(link, div){
+      if(div != current_page){
+        for (i in navlinks){
+          $("#" + navlinks[i]).css("border-bottom-style","hidden");
+          console.log(i);
+          if(div == navlinks[i]){
+            current_page  = navlinks[i];
+          }
+        }
+        $("#" + div).css("border-bottom-style","solid");
+          $("#contentwindow").slideUp('fast');
+          $("#contentwindow").promise().done(function(){
+            $("#content").load(link);
+            $("#contentwindow").slideDown('fast');
+
+          });
+      }
+    }
+
+    include("navbar", "navbar.html");
+    $("#content").load('home.html');
+    $("#" + current_page).css("border-bottom-style","solid");
+
+  </script>

@@ -1,0 +1,68 @@
+body{
+  background-color: #77BA99;
+
+}
+#mainwindow{
+  margin-top: 10px;
+  background-color: white;
+
+}
+.col-sm-3{
+  text-align: center;
+  font-size: 14px;
+  padding-bottom: 15px;
+}
+.col-sm-3:hover{
+  text-align: center;
+  color: #71697A;
+
+  cursor:pointer;
+
+}
+a:hover{
+  cursor:pointer;
+}
+button{
+  flex:1;
+}
+#contentwindow{
+  margin-top: 5px;
+  background-color: white;
+
+}
+
+@keyframes bottom {
+  0% {background-color: #E4BE9E;}
+  50% {background-color: #77BA99;}
+  100% {background-color: #E4BE9E;}
+
+}
+
+#profile{
+  width:200px;
+  height:200px;
+}
+#homerow{
+  display: flex;
+}
+.icon{
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+}
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
