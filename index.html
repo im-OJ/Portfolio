@@ -8,9 +8,25 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-
+  <Title>Oliver James</Title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="apple-touch-icon" sizes="57x57" href="res/favicons/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="res/favicons/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="res/favicons/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="res/favicons/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="res/favicons/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="res/favicons/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="res/favicons/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="res/favicons/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="res/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="res/favicons/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="res/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="res/favicons/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="res/favicons/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
 
 
 </Head>
@@ -23,8 +39,8 @@
     <div class="page-header">
       <div class='btn-toolbar pull-right'>
             <div class='btn-group'><br>
-                <a href=''><image style="width: 32px;" src='res/GitHub-Mark-64px.png' class="icon"/></a>
-                <a href=''><image style="width: 32px;" src='res/In-Black-66px-R.png' class="icon" ></a>
+                <a href='https://github.com/im-OJ/' target="_blank"><image style="width: 32px;" src='res/GitHub-Mark-64px.png' class="icon"/></a>
+                <a href='https://www.linkedin.com/in/ollie-james-9919925a/' target="_blank"><image style="width: 32px;" src='res/In-Black-66px-R.png' class="icon" ></a>
             </div>
     </div>
       <h1>Oliver James</h1>
@@ -36,6 +52,7 @@
   <div class="container" id="contentwindow">
     <div id="content" ></div>
   </div>
+  <br><br>
   </Body>
 
   <script>
@@ -53,7 +70,6 @@
       if(div != current_page){
         for (i in navlinks){
           $("#" + navlinks[i]).css("border-bottom-style","hidden");
-          console.log(i);
           if(div == navlinks[i]){
             current_page  = navlinks[i];
           }
@@ -61,8 +77,10 @@
         $("#" + div).css("border-bottom-style","solid");
           $("#contentwindow").slideUp('fast');
           $("#contentwindow").promise().done(function(){
-            $("#content").load(link);
-            $("#contentwindow").slideDown('fast');
+            $("#content").load(link, function(){
+              $("#contentwindow").slideDown('fast');
+            });
+
 
           });
       }
@@ -71,5 +89,9 @@
     include("navbar", "navbar.html");
     $("#content").load('home.html');
     $("#" + current_page).css("border-bottom-style","solid");
+    var hash = window.location.hash;
+    hash = hash.substr(1)
+    showPage(hash + ".html", hash);
+    console.log(hash);
 
   </script>

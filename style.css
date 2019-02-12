@@ -36,10 +36,12 @@ button{
      -khtml-user-select: none; /* Konqueror HTML */
        -moz-user-select: none; /* Firefox */
         -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; 
+            user-select: none;
 }
 
-
+.navchoice:hover{
+  font-weight: bold;
+}
 #profile{
   width:200px;
   height:200px;
@@ -50,4 +52,9 @@ button{
 .icon{
   animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
   transform: translate3d(0, 0, 0);
+}
+
+p{
+  font-size: 15px;
+  size: 15px;
 }
